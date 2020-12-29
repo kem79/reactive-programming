@@ -1,12 +1,11 @@
 package com.basicsstrong.reactive.section1;
 
-public class EndUser implements Observer {
+public class EndUser extends UserObserver {
 	
 	String name;
 	
-	EndUser(String name, SubjectLibrary subject) {
+	EndUser(String name) {
 		this.name = name;
-		subject.subscribeObserver(this);
 	}
 	
 	public String getName() {
@@ -14,14 +13,6 @@ public class EndUser implements Observer {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-
-
-
-	@Override
-	public void update(String avail) {
-		System.out.println("Hello "+ name + "! we are glad to notify you that your book is now "+ avail);
-		
 	}
 
 }

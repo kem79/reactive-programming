@@ -1,8 +1,8 @@
 package com.basicsstrong.reactive.section4;
 
-import java.util.List;
-
 import io.reactivex.rxjava3.core.Observable;
+
+import java.util.List;
 
 public class OperatorsInAction {
 
@@ -30,11 +30,11 @@ public class OperatorsInAction {
 		.subscribe(System.out::println);
 		
 		
-		List<Integer> expenses = List.of(200,500,300,340,129,234,999,1030,3400,890,996,789);
-		
-		Observable.fromIterable(expenses)
-		.reduce((a,b)-> a + b)
-		.subscribe(System.out::println);
+//		List<Integer> expenses = List.of(200,500,300,340,129,234,999,1030,3400,890,996,789);
+//
+//		Observable.fromIterable(expenses)
+//		.reduce((a,b)-> a + b)
+//		.subscribe(System.out::println);
 		
 
 	}

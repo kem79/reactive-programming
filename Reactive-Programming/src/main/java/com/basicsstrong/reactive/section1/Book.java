@@ -1,16 +1,13 @@
 package com.basicsstrong.reactive.section1;
 
-import java.util.ArrayList;
-
-
-public class Book implements SubjectLibrary {
+public class Book extends  EndUserSubjectPattern {
 
 	private String name;
 	private String type;
 	private String author;
 	private double price;
 	private String inStock;
-	private ArrayList<Observer> obsList = new ArrayList<Observer>();
+
 
 	public Book(String name, String type, String author, double price, String inStock) {
 		this.name = name;
@@ -59,44 +56,7 @@ public class Book implements SubjectLibrary {
 	public void setInStock(String inStock) {
 		this.inStock = inStock;
 		System.out.println("Availability changed from Sold out to Back in stock \n");
-		notifyObserver();
-	}
-
-	public ArrayList<Observer> getObsList() {
-		return obsList;
-	}
-
-	public void setObsList(ArrayList<Observer> obsList) {
-		this.obsList = obsList;
-	}
-
-	@Override
-	public void subscribeObserver(Observer ob) {
-
-		obsList.add(ob);
-	}
-
-	@Override
-	public void unsubscribeObserver(Observer ob) {
-		obsList.remove(ob);
-
-	}
-
-	@Override
-	public void notifyObserver() {
-		System.out.println(
-				"Book name : " +this.name +
-				",Book Type : "+ this.type +
-				",Price : " + this.price+
-				",Author : "+ this.author+
-				", is now "+this.inStock+". So, please notify all users.\n"
-				);
-		
-		for(Observer o : obsList)
-		{
-			o.update(this.inStock);
-		}
-
+		notifyObserver(this);
 	}
 
 }

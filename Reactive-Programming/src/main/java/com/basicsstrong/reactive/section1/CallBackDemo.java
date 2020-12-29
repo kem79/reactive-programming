@@ -8,22 +8,18 @@ public class CallBackDemo {
 		
 		Runnable r = new Runnable() {
 
-			@Override
 			public void run() {
 				new CallBackDemo().runningAsync(new CallBack() {
 
-					@Override
 					public void pushData(String data) {
 						System.out.println("CallBack data :" + data);
 					}
 
-					@Override
 					public void pushComplete() {
 						System.out.println("Callback done !");
 						
 					}
 
-					@Override
 					public void pushError(Exception ex) {
 						System.out.println("Callback Error called, Got an Exception :" + ex);
 					}
